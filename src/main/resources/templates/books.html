@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+        <html xmlns:th="http://www.thymeleaf.org">
+        <head lang="en">
+
+            <title>Edge Tech Java Spring Boot Framework</title>
+
+            <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+        </head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+    <div th:if="${not #lists.isEmpty(books)}">
+        <h2>Book List</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Book Id</th>
+                <th>Book Title</th>
+                <th>Author</th>
+                <th>Return Date</th>
+                <th>View</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <tr th:each="book : ${books}">
+                <td th:text="${book.id}">Book Id</td>
+                <td th:text="${book.title}">Book Title</td>
+                <td th:text="${book.author}">Author</td>
+                <td th:text="${book.returnDate}">Return Date</td>
+                <!--	These items have been added for the new functionality-->
+                <!--		to make our app a richer MVC example-->
+                <td><a  th:href="${ '/book/'        + book.id}">View</a></td>
+                <td><a  th:href="${ '/book/edit/'   + book.id}">Edit</a></td>
+                <td><a  th:href="${ '/book/delete/' + book.id}">Delete</a></td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+</body>
+</html></title>
+</head>
+<body>
+
+</body>
+</html>
